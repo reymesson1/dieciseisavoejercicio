@@ -1,0 +1,82 @@
+<ol>    
+  <mat-card>     
+    <li>
+      <form class="example-form">
+          <mat-form-field class="example-full-width" style="width:50%">
+            <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="masterData.description" name="description" >
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+    </li>
+    <li>
+        <form [formGroup]="stateForm">
+            <mat-form-field style="width:50%">
+              <input type="text" matInput placeholder="States Group" formControlName="stateGroup" required [matAutocomplete]="autoGroup" [(ngModel)]="masterDetailData.weight" name="item2" >
+                <mat-autocomplete #autoGroup="matAutocomplete">
+                  <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+                    <mat-option *ngFor="let name of group.names" [value]="name">
+                      {{name}}
+                    </mat-option>
+                </mat-optgroup>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+    </li>
+    <li>
+      <mat-form-field style="width:50%">
+          <mat-select placeholder="Type" [(ngModel)]="masterDetailData.type" name="type" >
+            <mat-option value="debit">Debit</mat-option>
+            <mat-option value="credit">Credit</mat-option>
+          </mat-select>
+        </mat-form-field>    
+    </li>
+    <li>
+      <mat-form-field style="width:50%">
+        <input matInput [(ngModel)]="masterData.value" name="value" placeholder="Quantity" type="number">
+      </mat-form-field>
+    </li>
+  </mat-card>
+    <br/>
+    <div class="row">
+      <div class="col-md-offset-10">
+        <li>        
+          <button mat-button color="primary" (click)="masterDetailDataSubmit()" style="background-color:lightgray;" ><mat-icon>add</mat-icon></button>      
+        </li>
+      </div>
+    </div>
+    <br/>
+    <mat-card>
+    <li>
+        <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Description</th>
+                <th>State</th>
+                <th>Type</th>
+                <th>Value</th>
+              </tr>
+            </thead>            
+            <tbody>
+              <tr *ngFor="let master of masterDataArr; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{master.description}}</td>
+                <td>{{master.weight}}</td>
+                <td>{{master.type}}</td>
+                <td>{{master.value}}</td>
+              </tr>
+            </tbody>
+          </table>
+        
+        <br/>
+    </li>
+
+    <li>
+      <button mat-raised-button (click)="onNoClick()">Save</button>
+    </li>
+  </mat-card>
+</ol>

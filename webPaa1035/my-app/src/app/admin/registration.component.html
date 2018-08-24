@@ -1,0 +1,56 @@
+<mat-card>  
+    <h1>Registration</h1>
+    <form (ngSubmit)="Post()">
+    <div class="row">
+
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="First name" [(ngModel)]="registerData.firstname" name="firstname">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="Last Name" [(ngModel)]="registerData.lastname" name="lastname">
+          </mat-form-field></td>
+          </tr>
+        </table>
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" [(ngModel)]="registerData.username" name="username">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [(ngModel)]="registerData.password" name="password" type="password">
+          </mat-form-field></td>
+        </tr>
+      </table>
+      <p>
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Address" [(ngModel)]="registerData.address" name="address" ></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Address 2" [(ngModel)]="registerData.address2" name="address2" ></textarea>
+        </mat-form-field>
+      </p>
+      
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <input matInput placeholder="City" [(ngModel)]="registerData.city" name="city" >
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <input matInput placeholder="State">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <input matInput #postalCode maxlength="5" placeholder="Postal Code" [(ngModel)]="registerData.postalcode" name="postalcode" >
+          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+        </mat-form-field></td>
+      </tr>
+    </table>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="pull-right">
+      <button mat-button style="background-color:lightgray">Cancel</button>&nbsp;
+      <button mat-button style="background-color:lightgray" type="submit" >Register</button>
+    </div>
+  </div>   
+</form>
+</mat-card>

@@ -1,0 +1,23 @@
+<ol>
+  <li>
+    <mat-form-field>
+      <input matInput [(ngModel)]="masterData.description" name="description" placeholder="Description">
+    </mat-form-field>
+  </li>
+  <li>
+    <mat-form-field>
+      <input matInput [(ngModel)]="masterData.value" name="value" placeholder="Value" type="number">
+    </mat-form-field>
+  </li>
+  <li>
+      <mat-form-field>
+          <mat-select placeholder="Type" [(ngModel)]="masterData.type" name="type" >
+            <mat-option value="debit">Debit</mat-option>
+            <mat-option value="credit">Credit</mat-option>
+          </mat-select>
+        </mat-form-field>    
+  </li>
+  <li>
+    <button mat-raised-button (click)="onNoClick()">Save</button>
+  </li>
+</ol>

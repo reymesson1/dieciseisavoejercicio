@@ -1,0 +1,8 @@
+<button mat-button [matMenuTriggerFor]="menu" *ngIf="data.isAuthenticated" >          
+  <mat-icon>account_circle</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/account" ><mat-icon>work</mat-icon>Profile</button>
+  <button mat-menu-item><mat-icon>settings</mat-icon>Configuration</button>
+  <button mat-menu-item (click)="logoff()"><mat-icon>input</mat-icon>Log out</button>
+</mat-menu> 

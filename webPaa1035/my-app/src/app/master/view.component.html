@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+            <h1>{{masterData.description}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6" >
+            <mat-form-field>
+                <input matInput [(ngModel)]="masterData.date" name="date" placeholder="Date" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                    <input matInput [(ngModel)]="masterData.description" name="description" placeholder="Description" disabled >
+            </mat-form-field>                        
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" >
+            <mat-form-field>
+                <input matInput *ngIf="masterData.type=='debit'" [(ngModel)]="masterData.value" name="debit" placeholder="Debit" disabled>
+                <input matInput *ngIf="masterData.type=='credit'" value="0.00" placeholder="Debit" disabled>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                    <input  matInput *ngIf="masterData.type=='debit'" value="0.00" placeholder="Credit" disabled >
+                    <input  matInput *ngIf="masterData.type=='credit'" [(ngModel)]="masterData.value" name="credit" placeholder="Credit" disabled >
+            </mat-form-field>                        
+        </div>
+    </div>
+</div>

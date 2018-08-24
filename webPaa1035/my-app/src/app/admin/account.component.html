@@ -1,0 +1,94 @@
+<mat-card style="width: 70%;margin-left: 16%;">
+  <mat-tab-group>
+    <mat-tab label="Account Information"> 
+
+    <br/>
+        <mat-list style="overflow:hidden;" >
+            <mat-list-item>
+            <div class="col-md-5">   
+                <div class="col-md-6">
+                    <mat-icon style="font-size:36px;">account_circle</mat-icon>
+                </div>             
+                <div class="col-md-6" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" >
+                    
+                </div>
+            </div>
+            <div class="col-md-2">
+                <hr class="vr"/>
+            </div>
+            <div class="col-md-5">
+                <mat-card-header>
+                    <mat-card-title >{{profileName.username}}</mat-card-title>
+                    <mat-card-subtitle  >{{profileName.firstname + ' ' + profileName.lastname }} </mat-card-subtitle>                    
+                </mat-card-header>
+            </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>            
+            <mat-list-item>
+                <div class="col-md-5">   
+                    <div class="col-md-6" style="margin-top:4%;">
+                        <mat-icon style="font-size:36px;">lock_circle</mat-icon>
+                    </div>             
+                    <div class="col-md-6" style="margin-top:4%;" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" >
+                        <mat-icon (click)="toggle()" style="font-size:15px;margin-top:11px;" [style.color]="backgroundColor" >edit</mat-icon>&nbsp;
+                        <mat-icon style="font-size:15px;margin-top:11px;" [style.color]="backgroundColor">photo_library</mat-icon>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <hr class="vr"/>
+                </div>
+                <div class="col-md-5" style="margin-top:4%;">
+                    <mat-card-header>
+                        <mat-card-title *ngIf="!btnToggle">Change Password</mat-card-title>                        
+                        <mat-form-field *ngIf="btnToggle">
+                                <input matInput placeholder="New Password" [(ngModel)]="accountData.password" name="password" >                                
+                        </mat-form-field>
+                        
+                    </mat-card-header>
+                </div>
+                </mat-list-item>
+        </mat-list>
+    </mat-tab>
+    <mat-tab label="Contact Information"> 
+            <mat-list style="overflow:hidden;" >
+                    <mat-list-item>
+                    <div class="col-md-5">   
+                        <div class="col-md-6" style="margin-top:4%;">
+                            <mat-icon style="font-size:36px;">language</mat-icon>
+                        </div>             
+                        <div class="col-md-6" style="margin-top:4%;" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" >
+                                <mat-icon (click)="toggle()" style="font-size:15px;margin-top:11px;" [style.color]="backgroundColor" >edit</mat-icon>&nbsp;
+                                <mat-icon style="font-size:15px;margin-top:11px;" [style.color]="backgroundColor">photo_library</mat-icon>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <hr class="vr"/>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-form-field>
+                            <mat-select *ngIf="!btnToggle" placeholder="Language" [(ngModel)]="accountData.language" name="language" disabled >
+                                <mat-option value="english">English</mat-option>
+                                <mat-option value="spanish">Spanish</mat-option>
+                            </mat-select>
+                            <mat-select *ngIf="btnToggle" placeholder="Language" [(ngModel)]="accountData.language" name="language" >
+                                <mat-option value="english">English</mat-option>
+                                <mat-option value="spanish">Spanish</mat-option>
+                            </mat-select>
+                        </mat-form-field>  
+                    </div>
+                    </mat-list-item>
+            </mat-list>
+            <mat-divider></mat-divider>                            
+    </mat-tab>
+    <mat-tab label="Security Information"> Content 3 </mat-tab>
+    <mat-tab label="Privacy"> Content 4 </mat-tab>
+  </mat-tab-group>
+  
+  <br/>
+  <br/>
+
+<div class="row">    
+          <button class="col-md-12" *ngIf="btnToggle" (click)="Post();toggle()" mat-button style="font-weight:bold;background-color:lightgray" >Update Information</button>&nbsp;
+  </div>
+</mat-card>
+
