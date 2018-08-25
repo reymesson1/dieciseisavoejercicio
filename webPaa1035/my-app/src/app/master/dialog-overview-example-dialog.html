@@ -29,8 +29,7 @@
     <li>
       <mat-form-field style="width:50%">
           <mat-select placeholder="Type" [(ngModel)]="masterDetailData.type" name="type" >
-            <mat-option value="debit">Debit</mat-option>
-            <mat-option value="credit">Credit</mat-option>
+            <mat-option *ngFor="let item of messages2" value="{{item}}">{{item}}</mat-option>            
           </mat-select>
         </mat-form-field>    
     </li>

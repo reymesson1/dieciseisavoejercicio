@@ -31,7 +31,7 @@ export class Item2Component {
   
   ngOnInit(){
     
-    this.data.getMessage1();
+    this.data.getMessage2();
     
     setTimeout(() => {
       this.dataSource = new MatTableDataSource<any>(this.data.messages2);

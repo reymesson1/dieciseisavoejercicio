@@ -38,6 +38,8 @@ export class MasterComponent implements OnInit {
     
     this.data.getMaster();
     this.data.getMessage();
+    this.data.getMessage1()
+    this.data.getMessage2();
     this.data.getDashboard();
     this.data.getStateGroups();
     this.data.getDetailGroups();

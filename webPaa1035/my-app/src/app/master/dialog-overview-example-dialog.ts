@@ -43,6 +43,7 @@ export class DialogOverviewExampleDialog  implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+  messages2
 
   myControl = new FormControl();
   
@@ -71,7 +72,9 @@ export class DialogOverviewExampleDialog  implements OnInit {
     }
 
     ngOnInit() {
-
+      
+      this.messages2 = this.dataRef.messages2.map(function (a){ return a.description; });
+      
       this.dataSource = [];
       this.dataRef.getDetailGroups();
       
@@ -126,6 +129,7 @@ export class DialogOverviewExampleDialog  implements OnInit {
   onNoClick(): void {            
       this.masterData["position"] = this.nextDay.getTime();      
       this.masterData["date"] = this.nextDay.toLocaleDateString() + " " + this.nextDay.toLocaleTimeString();
+      this.masterData["value"] = this.masterDetailData.value;
       this.masterData["items"] = this.masterDataArr;
       this.masterData["token"] = this.dataRef.token;      
       this.dataRef.postMaster(this.masterData);
